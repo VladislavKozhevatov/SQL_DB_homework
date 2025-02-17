@@ -1,6 +1,7 @@
 package ru.hogwarts.school.service.impl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.school.exeption.FacultyNotFoundExeption;
 import ru.hogwarts.school.exeption.StudentNotFoundExeption;
@@ -14,6 +15,7 @@ import java.util.*;
 @Service
 public class StudentServiceImpl implements StudentService {
 
+    @Autowired
     private final StudentRepository studentRepository;
 
     public StudentServiceImpl(StudentRepository studentRepository) {

@@ -1,5 +1,6 @@
 package ru.hogwarts.school.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.school.exeption.FacultyNotFoundExeption;
 import ru.hogwarts.school.model.Faculty;
@@ -12,6 +13,7 @@ import java.util.*;
 @Service
 public class FacultyServiceImpl implements FacultyService {
 
+    @Autowired
     private final FacultyRepository facultyRepository;
 
     public FacultyServiceImpl(FacultyRepository facultyRepository) {
