@@ -35,6 +35,10 @@ public class Faculty {
         this.color = color;
     }
 
+    public Faculty() {
+
+    }
+
     public long getId() {
         return id;
     }

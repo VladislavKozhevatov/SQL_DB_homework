@@ -8,7 +8,7 @@ public interface StudentService {
 
     Student addStudent(Student student);
 
-    Student updateStudent(Long id, Student student) ;
+    Student updateStudent(Student student) ;
 
     Student getStudent(Long id);
 

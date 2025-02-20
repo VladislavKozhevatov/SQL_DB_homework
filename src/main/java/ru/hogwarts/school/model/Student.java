@@ -17,6 +17,9 @@ public class Student {
     private int age;
     private  String name;
 
+    public Student() {
+    }
+
     public Student(long id, int age, String name) {
         this.id = id;
         this.age = age;

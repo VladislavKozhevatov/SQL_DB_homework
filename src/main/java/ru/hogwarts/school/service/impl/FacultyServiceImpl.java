@@ -61,6 +61,19 @@ public class FacultyServiceImpl implements FacultyService {
 //        return Collections.unmodifiableList(new ArrayList<>(repository.values()));
     }
 
+//    public Collection<Faculty> findByColor(String color) {
+//        return facultyRepository.findByColorIgnorCase(color);
+//    }
+//
+//    public Collection<Faculty> findByName(String name) {
+//    return facultyRepository.findByNameIgnoreCase(name);
+//    }
+//
+//    public Collection<Faculty> findAll() {
+//        return facultyRepository.findAll();
+//    }
+
+
 //    public void checkExistFaculty(Long id) {
 //        if (!repository.containsKey(id)) {
 //            throw new FacultyNotFoundExeption("Факультет с переданным id не существует");

@@ -34,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student updateStudent(Long id , Student student) {
+    public Student updateStudent(Student student) {
         return studentRepository.save(student);
 //        checkExistStudent(id);
 //        student.setId(id);
