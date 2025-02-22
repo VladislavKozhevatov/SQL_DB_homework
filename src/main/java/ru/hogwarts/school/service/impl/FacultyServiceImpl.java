@@ -21,13 +21,14 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
 
+
 //    private final Map<Long, Faculty> repository = new HashMap<>();
 //    private Long count = 0l;
 
 
     @Override
     public Faculty addFaculty(Faculty faculty) {
-       return facultyRepository.save(faculty);
+        return facultyRepository.save(faculty);
 //        faculty.setId(++count);
 //        repository.put(count,faculty);
 //        return faculty;
@@ -35,7 +36,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public Faculty updateFaculty(Long id, Faculty faculty) {
-      return facultyRepository.save(faculty);
+        return facultyRepository.save(faculty);
 //        checkExistFaculty(id);
 //        faculty.setId(id);
 //        repository.put(id,faculty);
@@ -61,17 +62,17 @@ public class FacultyServiceImpl implements FacultyService {
 //        return Collections.unmodifiableList(new ArrayList<>(repository.values()));
     }
 
-//    public Collection<Faculty> findByColor(String color) {
-//        return facultyRepository.findByColorIgnorCase(color);
-//    }
-//
-//    public Collection<Faculty> findByName(String name) {
-//    return facultyRepository.findByNameIgnoreCase(name);
-//    }
-//
-//    public Collection<Faculty> findAll() {
-//        return facultyRepository.findAll();
-//    }
+    public Collection<Faculty> findByColor(String color) {
+        return facultyRepository.findByColorIgnoreCase(color);
+    }
+
+    public Collection<Faculty> findByName(String name) {
+        return facultyRepository.findByNameIgnoreCase(name);
+    }
+
+    public Collection<Faculty> findAll() {
+        return facultyRepository.findAll();
+    }
 
 
 //    public void checkExistFaculty(Long id) {

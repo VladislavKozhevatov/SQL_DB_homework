@@ -1,21 +1,33 @@
 package ru.hogwarts.school.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 @Entity
+@Table(name = "student")
 public class Student {
 
  //   @JsonProperty(access = JsonProperty.Access.READ_ONLY)
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull(message = "Возраст является обязательным полем ввода")
+    @Min(value = 1,message = "Возраст должен быть положительным числом")
     private int age;
+
+    @NotNull(message = "Имя является обязательным полем ввода")
     private  String name;
+
+    @NotNull(message = "Введите название факультета")
+    @ManyToOne
+    @JoinColumn(name = "faculty_id", nullable = false)//столбец в базе данных не может быть 0
+    @JsonBackReference
+    private Faculty faculty;
 
     public Student() {
     }

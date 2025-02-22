@@ -3,8 +3,6 @@ package ru.hogwarts.school.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.hogwarts.school.exeption.FacultyNotFoundExeption;
-import ru.hogwarts.school.exeption.StudentNotFoundExeption;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repository.StudentRepository;
 import ru.hogwarts.school.service.StudentService;
@@ -60,6 +58,8 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAll();
 //        return Collections.unmodifiableList(new ArrayList<>(repository.values()));
     }
+
+
 //    public void checkExistStudent(Long id) {
 //            if (!repository.containsKey(id)) {
 //            throw new StudentNotFoundExeption("Студент с переданным id не существует");

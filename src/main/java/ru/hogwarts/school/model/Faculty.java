@@ -1,25 +1,21 @@
 package ru.hogwarts.school.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
+import java.util.Collection;
 import java.util.Objects;
 
-//@ToString
-//@Getter
-//@Setter
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@EqualsAndHashCode
+
 @Entity
+@Table(name = "faculty")
 public class Faculty {
 
   //  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -28,6 +24,11 @@ public class Faculty {
     private Long id;
     private String name;
     private String color;
+
+      @JsonProperty(required = true)
+      @OneToMany(mappedBy = "faculty",fetch = FetchType.LAZY)
+      @JsonBackReference
+       private Collection<Student> students;
 
     public Faculty(long id, String name, String color) {
         this.id = id;

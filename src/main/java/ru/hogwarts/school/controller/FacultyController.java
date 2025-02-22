@@ -5,44 +5,46 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Faculty;
+import ru.hogwarts.school.repository.FacultyRepository;
 import ru.hogwarts.school.repository.StudentRepository;
-import ru.hogwarts.school.service.FacultyService;
-import ru.hogwarts.school.service.StudentService;
 import ru.hogwarts.school.service.impl.FacultyServiceImpl;
 import ru.hogwarts.school.service.impl.StudentServiceImpl;
 
 import java.util.Collection;
 import java.util.List;
-import java.awt.*;
 
 
 @RestController
 @RequestMapping("/faculties")
-@AllArgsConstructor
+//@AllArgsConstructor
 @Tag(name="Контроллер факультетов", description = "Контроллер для работы с Факультетами")
 public class FacultyController {
 
-    private final FacultyServiceImpl facultyServiceImpl;
+    public FacultyController() {
+    }
+
+    private FacultyServiceImpl facultyServiceImpl;
     private StudentServiceImpl studentServiceImpl;
     private StudentRepository studentRepository;
+    private FacultyRepository facultyRepository;
 
-
-    public FacultyController(FacultyServiceImpl facultyServiceImpl, StudentServiceImpl studentServiceImpl, StudentRepository studentRepository) {
+    public FacultyController(FacultyServiceImpl facultyServiceImpl, StudentServiceImpl studentServiceImpl, StudentRepository studentRepository, FacultyRepository facultyRepository) {
         this.facultyServiceImpl = facultyServiceImpl;
         this.studentServiceImpl = studentServiceImpl;
         this.studentRepository = studentRepository;
+        this.facultyRepository = facultyRepository;
     }
 
-//    public Collection<Faculty> findFaculties(@RequestParam(required = false)String color,
-//                                             @RequestParam(required = false)String name){
-//        if (color!=null&& !color.isBlank()){
-//            return facultyServiceImpl.findByColor(color);
-//        }
-//        if (name!=null && !name.isBlank()){
-//            return facultyServiceImpl.findByName(name);
-//        }
-//        return facultyServiceImpl.findAll();
-//    }
+    public Collection<Faculty> findFaculties(@RequestParam(required = false)String color,
+                                             @RequestParam(required = false)String name){
+        if (color!=null&& !color.isBlank()){
+            return facultyServiceImpl.findByColor(color);
+        }
+        if (name!=null && !name.isBlank()){
+            return facultyServiceImpl.findByName(name);
+        }
+        return facultyServiceImpl.findAll();
+    }
 
 
     //GET , POST, PUT, DELETE
@@ -71,5 +73,9 @@ public class FacultyController {
     public List<Faculty> getAll(){
         return facultyServiceImpl.getAll();
     }
+
+//    @GetMapping Faculty getFacultyByStudentId(@PathVariable Long id){
+//        return facultyRepository.findByFacultyId(id);
+//    }
 
 }
