@@ -18,17 +18,17 @@ import java.util.Objects;
 @Table(name = "faculty")
 public class Faculty {
 
-  //  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    //  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String color;
 
-      @JsonProperty(required = true)
-      @OneToMany(mappedBy = "faculty",fetch = FetchType.LAZY)
-      @JsonBackReference
-       private Collection<Student> students;
+    @JsonProperty(required = true)
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Collection<Student> students;
 
     public Faculty(long id, String name, String color) {
         this.id = id;
