@@ -21,7 +21,6 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
 
-
 //    private final Map<Long, Faculty> repository = new HashMap<>();
 //    private Long count = 0l;
 

@@ -1,7 +1,6 @@
 package ru.hogwarts.school.controller;
 
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.coyote.Response;
@@ -22,7 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/students")
-@Tag(name="Контроллер студентов", description = "Контроллер для работы со студентами")
+@Tag(name = "Контроллер студентов", description = "Контроллер для работы со студентами")
 public class StudentController {
 
     public StudentController() {
@@ -43,35 +42,35 @@ public class StudentController {
     //GET , POST, PUT, DELETE
 
     @PostMapping
-    public Student addStudent (@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
     }
 
 
     @PutMapping("/{id}")
-    @Operation(summary = "Метод добавления студента",description = "метод для добавления студента в репозиторий")
-    public Student updateStudent (@RequestBody Student student){
+    @Operation(summary = "Метод добавления студента", description = "метод для добавления студента в репозиторий")
+    public Student updateStudent(@RequestBody Student student) {
         return studentService.updateStudent(student);
     }
 
     @GetMapping("/{id}")
-    public Student getStudent(@PathVariable(name = "id") Long id){
+    public Student getStudent(@PathVariable(name = "id") Long id) {
         return studentService.getStudent(id);
     }
 
-    @DeleteMapping ("/{id}")
-    public void deleteStudent (@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
     }
 
     @GetMapping
-    public List<Student> getAll(){
+    public List<Student> getAll() {
         return studentService.getAll();
     }
 
     @GetMapping("age_between")
-    public ResponseEntity <Collection<Student>> getStudentsByAgeBetween(@RequestParam("min") int minAge, @RequestParam("max") int maxAge){
-        Collection<Student> students = studentRepository.findByAgeBetween(minAge,maxAge);
+    public ResponseEntity<Collection<Student>> getStudentsByAgeBetween(@RequestParam("min") int minAge, @RequestParam("max") int maxAge) {
+        Collection<Student> students = studentRepository.findByAgeBetween(minAge, maxAge);
         return ResponseEntity.ok(students);
     }
 
